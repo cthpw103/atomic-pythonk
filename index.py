@@ -14,11 +14,11 @@ class Atomic(commands.Bot):
     def __init__(self, command_prefix, **options):
         super().__init__(command_prefix, **options)
         
-def log_colored(text, color):
-    return print(termcolor.colored(text, color))
+    def log_colored(self, text, color):
+        return print(termcolor.colored(text, color))
         
     async def on_ready(self):
-        log_colored('Logged in as {0}'.format(client.user.name + "#" + client.user.discriminator), 'green')
+        log_colored('Logged in as {0}'.format(self.user.name + "#" + self.user.discriminator), 'green')
 
         self.load_extension('extensions.basic')
     
