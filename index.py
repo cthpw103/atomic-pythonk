@@ -10,13 +10,9 @@ with open("index.json") as shitcode:
 token = config.get('token')
 prefix = 'ATPY;'
 
-class Atomic(commands.Bot):
-    def prefix(self, bot, cmd):
-        return commands.when_mentioned_or(*self.prefix)(bot, msg)
-    
+class Atomic(commands.Bot):  
     def __init__(self, command_prefix, **options):
-        super().__init__(self.prefix, **options)
-        self.prefix = command_prefix
+        super().__init__(command_prefix, **options)
         
     def log_colored(self, text, color):
         return print(termcolor.colored(text, color))
@@ -30,12 +26,11 @@ class Atomic(commands.Bot):
             pass
         # Make non-existing commands not spam the console.
 
-    async def on_message(self, message):
-        if message.author.bot:
-            return
-        else:
-            pass
+    # async def on_message(self, message):
+        # if message.author.bot:
+            # return
         # Prevents bot to bot interactions.
+        # Currently breaks the bot, to be fixed.
 
 atomic = Atomic(prefix)
 atomic.run(token)
