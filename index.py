@@ -1,7 +1,7 @@
 import discord
 import json
 import collections
-from termcolor import colored
+import termcolor
 
 with open("index.json") as shitcode:
     config = json.load(shitcode)
@@ -9,10 +9,13 @@ with open("index.json") as shitcode:
 client = discord.Client()
 prefix = 'ATPY;'
 
+def log_colored(text, color):
+    return colored(text, color)
+
 
 @client.event
 async def on_ready():
-    print('Logged in as ' + client.user.name + client.user.discriminator)
+    log_colored('Logged in as ' + client.user.name + client.user.discriminator', green)
 
 
 @client.event
