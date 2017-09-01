@@ -29,6 +29,8 @@ class Atomic(commands.Bot):
     async def on_message(self, message):
         if message.author.bot:
             return
+        else:
+            pass
         # Prevents bot to bot interactions.
 
 atomic = Atomic(prefix)
