@@ -18,7 +18,12 @@ class Atomic(commands.Bot):
         return print(termcolor.colored(text, color))
         
     async def on_ready(self):
+<<<<<<< HEAD
         self.log_colored('Logged in as {0}'.format(str(self.user)), 'green')
+=======
+        log_colored('Logged in as {0}'.format(self.user.name + "#" + self.user.discriminator), 'green')
+
+>>>>>>> c35edf4649b02cbe1748d833b9880050d2281bfb
         self.load_extension('extensions.basic')
     
     async def on_command_error(self, Exception, context):
