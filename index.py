@@ -19,7 +19,7 @@ class Atomic(commands.Bot):
         
     async def on_ready(self):
         self.log_colored('Logged in as {0}'.format(str(self.user)), 'green')
-        log_colored('Logged in as {0}'.format(self.user.name + "#" + self.user.discriminator), 'green')
+        self.log_colored('Logged in as {0}'.format(self.user.name + "#" + self.user.discriminator), 'green')
         self.load_extension('extensions.basic')
     
     async def on_command_error(self, Exception, context):
