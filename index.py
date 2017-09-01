@@ -10,7 +10,7 @@ client = discord.Client()
 prefix = 'ATPY;'
 
 def log_colored(text, color):
-    return colored(text, color)
+    return termcolor.colored(text, color)
 
 
 @client.event
