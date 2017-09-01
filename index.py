@@ -10,12 +10,12 @@ client = discord.Client()
 prefix = 'ATPY;'
 
 def log_colored(text, color):
-    return colored(""+text+"", ""+color+"")
+    return colored(text, color)
 
 
 @client.event
 async def on_ready():
-    log_colored('Logged in as ' + client.user.name + client.user.discriminator', 'green')
+    log_colored('Logged in as {0}', 'green').format(client.user.name + "#" + client.user.discriminator')
 
 
 @client.event
