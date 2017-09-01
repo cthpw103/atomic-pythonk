@@ -1,7 +1,7 @@
 import discord
 import json
 import collections
-from termcolor import colored
+import termcolor
 from discord.ext import commands
 
 with open("index.json") as shitcode:
@@ -14,12 +14,11 @@ class Atomic(commands.Bot):
     def __init__(self, command_prefix, **options):
         super().__init__(command_prefix, **options)
         
-def log_colored(text, color):
-    return print(termcolor.colored(text, color))
+    def log_colored(self, text, color):
+        return print(termcolor.colored(text, color))
         
     async def on_ready(self):
-        log_colored('Logged in as {0}'.format(client.user.name + "#" + client.user.discriminator), 'green')
-
+        self.log_colored('Logged in as {0}'.format(str(self.user)), 'green')
         self.load_extension('extensions.basic')
     
     async def on_command_error(self, Exception, context):
@@ -31,7 +30,6 @@ def log_colored(text, color):
         if message.author.bot:
             return
         # Prevents bot to bot interactions.
-
 
 atomic = Atomic(prefix)
 atomic.run(token)
