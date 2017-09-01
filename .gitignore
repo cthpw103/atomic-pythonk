@@ -1,2 +1,6 @@
 .idea
 index.json
+rethinkdb_data
+rethinkdb_data/*.*
+rethinkdb_data/
+# I'm bad at gitignoring
