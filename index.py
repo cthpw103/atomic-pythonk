@@ -1,27 +1,34 @@
 import discord
 import json
 import collections
-import termcolor
+from termcolor import colored
+from discord.ext import commands
 
 with open("index.json") as shitcode:
     config = json.load(shitcode)
 
-client = discord.Client()
+token = config.get('token')
 prefix = 'ATPY;'
 
-def log_colored(text, color):
-    return termcolor.colored(text, color)
+class Atomic(commands.Bot):
+    def __init__(self, command_prefix, **options):
+        super().__init__(command_prefix, **options)
+
+    async def on_ready(self):
+        print('Logged in as {}'.format(self.user.name))
+
+        self.load_extension('extensions.basic')
+    
+    async def on_command_error(self, Exception, context):
+        if isinstance(Exception, commands.errors.CommandNotFound):
+            pass
+        # Make non-existing commands not spam the console.
+
+    async def on_message(self, message):
+        if message.author.bot:
+            return
+        # Prevents bot to bot interactions.
 
 
-@client.event
-async def on_ready():
-    log_colored('Logged in as {0}', 'green').format(client.user.name + "#" + client.user.discriminator)
-
-
-@client.event
-async def on_message(message):
-    if message.content.startswith(prefix + 'meme'):
-        client.send_message(message.channel, 'is this how you python?')
-
-
-client.run(config.get('token'))
+atomic = Atomic(prefix)
+atomic.run(token)
