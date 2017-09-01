@@ -15,7 +15,7 @@ def log_colored(text, color):
 
 @client.event
 async def on_ready():
-    log_colored('Logged in as {0}', 'green').format(client.user.name + "#" + client.user.discriminator')
+    log_colored('Logged in as {0}', 'green').format(client.user.name + "#" + client.user.discriminator)
 
 
 @client.event
