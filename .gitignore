@@ -4,3 +4,7 @@ rethinkdb_data
 rethinkdb_data/*.*
 rethinkdb_data/
 # I'm bad at gitignoring
+logs/
+logs/**/*.*
+logs/*.*
+logs
