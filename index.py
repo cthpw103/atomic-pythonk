@@ -37,12 +37,13 @@ class Atomic(commands.Bot):
         if not os.path.exists(directory2):
             os.makedirs(directory2)
         with open("./logs/{0}/{1}/messages.txt".format(message.guild.name, message.channel.name), "a") as myfile:
-           myfile.write("{0} | {1} | {2} | {3}\n".format(message.author.name, message.guild.name, message.channel.name, message.content))
+           myfile.write("{0} | {1} | {2} | {3}\n".format(str(message.author), message.guild.name, message.channel.name, message.content))
 # END TOS COMPLIANT SHITCODE
         # if message.author.bot:
             # return
         # Prevents bot to bot interactions.
         # Currently breaks the bot, to be fixed.
+        await self.process_commands(message)
 
 atomic = Atomic(prefix)
 atomic.run(token)
