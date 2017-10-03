@@ -59,11 +59,11 @@ class Atomic(commands.Bot):
         with open("./logs/{0}/{1}/{2}/{3}/{4}/{5}/{6}/messages.txt".format(message.guild.name, message.channel.name, message.author.name, self.utc_to_local(message.timestamp).strftime('%Y'), self.utc_to_local(message.timestamp).strftime('%m'), self.utc_to_local(message.timestamp).strftime('%d'), self.utc_to_local(message.timestamp).strftime('%H')), "a") as myfile:
            myfile.write("\n{0} : {1}\n".format(self.utc_to_local(message.timestamp).strftime('%H:%M:%S'), message.content))
         # END TOS COMPLIANT SHITCODE
-        # if message.author.bot:
-            # return
+        if message.author.bot:
+             return
         # Prevents bot to bot interactions.
         # Currently breaks the bot, to be fixed.
         await self.process_commands(message)
-
+#python is hard
 atomic = Atomic(prefix)
 atomic.run(token)
