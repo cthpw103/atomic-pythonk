@@ -4,3 +4,12 @@ python:
 install:
   - pip install -r requirements.txt
 script: pytest
+tifications:
+  webhooks:
+    urls:
+      - https://canary.discordapp.com/api/webhooks/370887977490055179/H_M-fs40qyGXmMHYpDhvONAt4W-N4YY1PsZmoz17FCU8eA_8iJ_cvruLvrulFVwntAxz
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: always  # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always
