@@ -9,3 +9,4 @@ logs/**/*.*
 logs/*.*
 logs
 ./**/*.pyc
+.travis.yml
