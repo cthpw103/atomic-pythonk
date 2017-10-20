@@ -2,5 +2,5 @@ language: python
 python:
   - "3.6.2"
 install:
-  - pip install -r requirements.txt
+  - pip install --user -r requirements.txt
 script: pytest
