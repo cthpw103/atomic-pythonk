@@ -1,3 +1,5 @@
+try:
+
 import collections
 import json
 import os
@@ -67,3 +69,6 @@ class Atomic(commands.Bot):
 
 atomic = Atomic(prefix)
 atomic.run(token)
+except:
+     e = sys.exc_info()[0]
+     self.log_colored('fuck. {0}'.format(e), 'red')
