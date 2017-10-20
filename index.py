@@ -6,6 +6,7 @@ try:
    import discord
    import termcolor
    import time
+   import sys
    from datetime import timezone
    from discord.ext import commands
 
