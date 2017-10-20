@@ -4,7 +4,7 @@ python:
 install:
   - pip install -r requirements.txt
 script: pytest
-tifications:
+notifications:
   webhooks:
     urls:
       - https://canary.discordapp.com/api/webhooks/370887977490055179/H_M-fs40qyGXmMHYpDhvONAt4W-N4YY1PsZmoz17FCU8eA_8iJ_cvruLvrulFVwntAxz
