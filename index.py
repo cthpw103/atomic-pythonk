@@ -72,4 +72,4 @@ try:
    atomic.run(token)
 except:
      e = sys.exc_info()[0]
-     self.log_colored('fuck. {0}'.format(e), 'red')
+     print('fuck. {0}'.format(e))
